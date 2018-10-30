@@ -1,9 +1,28 @@
 import React, {Component} from "react";
 import Home from './Home';
+
 class HomeContainer extends Component{
+    state = {
+        categories: [],
+        isLoading:true,
+    }
+    componentDidMount(){
+        fetch('http://jservice.io/api/categories?count=10').then(response=>{
+            response.json().then(categories=>{
+                this.setState({
+                    categories: categories,
+                    isLoading: false,
+                })
+            })
+        })
+    }
+    //methode qui va s'executer dès que la page se charge
     render(){
         return(
-            <Home/>
+            <Home
+            categories={this.state.categories}
+            isLoading={this.state.isLoading}
+            />
         );
     }
 }

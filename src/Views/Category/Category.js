@@ -1,13 +1,21 @@
 import React from "react";
 import {PropTypes} from 'prop-types';
 
-const Category = ({categoryName}) =>(
+const Category = ({categoryName,isLoading}) =>(
     <section>
+    {!isLoading ?
+     <div>
         <h1>Categories</h1>
-        <p>Categorie:{categoryName}</p>
+        <p>{categoryName.title}</p>
+     </div>
+
+    : <h1>Ca charge</h1>
+    }
+
     </section>
 );
 Category.PropTypes = {
-    categoryName: PropTypes.string.isRequired,
+    categoryName: PropTypes.object,
+    isLoading: PropTypes.bool.isRequired,
 };
 export default Category;

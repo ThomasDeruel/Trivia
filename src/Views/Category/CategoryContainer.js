@@ -3,11 +3,32 @@ import {withRouter} from "react-router-dom" // permet de récupérer les params 
 import Category from './Category';
 
 class CategoryContainer extends Component{
+    state = {
+        categoryName: {},
+        isLoading:true,
+        error:false,
+    }
+    componentDidMount(){
+        //dans api js : api.getCategoryById(this.props.match.params.name)
+        fetch(`http://jservice.io/api/category?id=${this.props.match.params.name}`).then(response=>{
+            response.json().then(categoryName=>{
+                this.setState({
+                    categoryName: categoryName,
+                    isLoading: false
+                })
+            })
+        }).catch(error=>{
+            this.setState({
+                error: error,
+            })
+        })
+    }
     render(){
-        console.log(this.props);
+        console.log(this.state.error)
         return(
             <Category
-            categoryName={this.props.match.params.name}//permet de récupérer le paramètre 'name'
+            categoryName={this.state.categoryName}//permet de récupérer le paramètre 'name'
+            isLoading={this.state.isLoading}
             />
             
         );
