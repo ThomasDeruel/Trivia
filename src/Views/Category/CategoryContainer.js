@@ -1,30 +1,22 @@
 import React, {Component} from "react";
-import {withRouter} from "react-router-dom" // permet de récupérer les params de l'url;
+import api from '../../helpers/api'
 import Category from './Category';
+import {withRouter} from "react-router-dom" // permet de récupérer les params de l'url;
 
 class CategoryContainer extends Component{
     state = {
         categoryName: {},
         isLoading:true,
-        error:false,
     }
-    componentDidMount(){
-        //dans api js : api.getCategoryById(this.props.match.params.name)
-        fetch(`http://jservice.io/api/category?id=${this.props.match.params.name}`).then(response=>{
-            response.json().then(categoryName=>{
-                this.setState({
-                    categoryName: categoryName,
-                    isLoading: false
-                })
-            })
-        }).catch(error=>{
-            this.setState({
-                error: error,
-            })
-        })
+    async componentDidMount(){
+        const data = await api.getCategoryById(this.props.match.params.name);
+        this.setState({
+            categoryName : data,
+            isLoading: false,
+        });
     }
     render(){
-        console.log(this.state.error)
+        console.log(this.state.isLoading)
         return(
             <Category
             categoryName={this.state.categoryName}//permet de récupérer le paramètre 'name'

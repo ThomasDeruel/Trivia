@@ -5,14 +5,15 @@ const Home = ({categories,isLoading}) =>(
     <section>
         <h1>Home</h1>
         {!isLoading ?
-            categories.map(categorie=>(
-                <ul>
-                    <li><Link to={`/categories/${categorie.id}`} key={categorie.id}>
+            <ul>
+            {categories.map(categorie=>(
+                <li key={categorie.id.toString()}>
+                    <Link to={`/categories/${categorie.id}`} >
                         {categorie.title}
                     </Link>
-                    </li>
-                </ul>
-            ))
+                </li>    
+            ))}
+            </ul>
          : <h1>Ca Charge</h1>   
         }
     </section>
