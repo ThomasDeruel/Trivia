@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 const Home = ({categories,isLoading}) =>(
     <section>
         <h1>Home</h1>
@@ -18,14 +18,14 @@ const Home = ({categories,isLoading}) =>(
         }
     </section>
 );
-Home.PropTypes = {
-    categories: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            title: PropTypes.string.isRequired,
-            clues_count: PropTypes.number.isRequired,
+Home.propTypes = {
+    categories: propTypes.arrayOf(
+        propTypes.shape({
+            id: propTypes.number.isRequired,
+            title: propTypes.string.isRequired,
+            clues_count: propTypes.number.isRequired,
         }).isRequired,
     ),
-    isLoading: PropTypes.bool.isRequired,
+    isLoading: propTypes.bool.isRequired,
 }
 export default Home;
