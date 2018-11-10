@@ -5,8 +5,10 @@ import './App.css';
 import HomeContainer from '../../Views/Home/HomeContainer'
 import CategoryContainer from '../../Views/Category/CategoryContainer'
 import GameOverContainer from '../../Views/GameOver/GameOverContainer';
+
 const Header = () => <p>Le header</p>;
-const Footer = () => <p>Le footer</p>
+const Footer = () => <p>Le footer</p>;
+
 class App extends Component{
   render(){
     return(
