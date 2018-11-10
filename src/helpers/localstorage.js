@@ -4,6 +4,7 @@ export default () => {
         console.log('pas créer');
         const storage = {
             category:'',
+            bestScore:0,
             score:0,
             tried:0,
             questionId:{}
