@@ -6,7 +6,7 @@ class storage {
     return localstorage(); // get current localstorage of storage
   }
 
-  set(newdata) {// add or modified my storage
+  set(newdata) {// add or modify my storage
     localStorage.setItem('storage', JSON.stringify(newdata));
     JSON.parse(localStorage.getItem('storage'));
   }
