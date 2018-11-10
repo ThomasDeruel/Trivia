@@ -1,12 +1,14 @@
 import localstorage from './localstorage';
 
 class storage {
-  constructor() {
-    this.storage = localstorage();
-  }
+
   get() {
-    return this.storage;
+    return localstorage();
   }
 
+  set(newdata) {
+    localStorage.setItem('storage', JSON.stringify(newdata));
+    JSON.parse(localStorage.getItem('storage'));
+  }
 }
 export default new storage();

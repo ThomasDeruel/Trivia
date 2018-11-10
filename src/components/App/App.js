@@ -8,7 +8,15 @@ import GameOverContainer from '../../Views/GameOver/GameOverContainer';
 import storage from '../../helpers/storage';
 const Header = () => <p>Le header</p>;
 const Footer = () => <p>Le footer</p>;
+
+// test localstorage -- START
+let mystorage = storage.get(); // get the localstorage
+mystorage.questionId.thisIsAnObject = 5; // add add an object in questionID;
+storage.set(mystorage); // add a value
+mystorage.questionId.thisIsAnObject+=1; // increment value;
+storage.set(mystorage); // modified a value
 console.log(storage.get());
+// test localstorage -- END
 class App extends Component{
   render(){
     return(
