@@ -1,7 +1,6 @@
 export default () => {
     let localstorage = localStorage.getItem('storage');
-    if(!localstorage){
-        console.log('pas créer');
+    if(!localstorage){ // init localstorage
         const storage = {
             category:'',
             bestScore:0,
@@ -12,5 +11,5 @@ export default () => {
         localStorage.setItem('storage', JSON.stringify(storage));
         localstorage = JSON.parse(localStorage.getItem('storage'));
     }
-    return JSON.parse(localstorage);  
+    return JSON.parse(localstorage); // return current localstorage 
 }

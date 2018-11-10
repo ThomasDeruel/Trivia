@@ -3,14 +3,14 @@ import localstorage from './localstorage';
 class storage {
 
   get() {
-    return localstorage();
+    return localstorage(); // get current localstorage of storage
   }
 
-  set(newdata) {
+  set(newdata) {// add or modified my storage
     localStorage.setItem('storage', JSON.stringify(newdata));
     JSON.parse(localStorage.getItem('storage'));
   }
-  resetCategory() {
+  resetCategory() { // when I want to change my category
       let storage = this.get();
       storage.category = '';
       storage.score = 0;
