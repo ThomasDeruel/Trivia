@@ -3,7 +3,7 @@ import localstorage from './localstorage';
 class storage {
 
   get() {
-    return localstorage(); // get current localstorage of storage
+    return localstorage(); // get current localstorage
   }
 
   set(newdata) {// add or modify my storage
