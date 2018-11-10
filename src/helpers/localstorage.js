@@ -1,5 +1,5 @@
 export default () => {
-    const localstorage = localStorage .getItem('storage');
+    let localstorage = JSON.parse(localStorage.getItem('storage'));
     if(!localstorage){
         const storage = {
             category:'',
@@ -8,8 +8,7 @@ export default () => {
             questionId:[]
         };
         localStorage.setItem('storage', JSON.stringify(storage));
-        return localstorage;
-    } else {
-        return localstorage;
-    }  
+        localstorage = JSON.parse(localStorage.getItem('storage'));
+    }
+    return localstorage;  
 }
