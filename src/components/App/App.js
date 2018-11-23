@@ -1,37 +1,23 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route} from "react-router-dom";
+
+import React, { Component, Fragment } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import HomeContainer from '../../Views/Home/HomeContainer';
+import CategoryContainer from '../../Views/Category/CategoryContainer';
 
-import HomeContainer from '../../Views/Home/HomeContainer'
-import CategoryContainer from '../../Views/Category/CategoryContainer'
-import GameOverContainer from '../../Views/GameOver/GameOverContainer';
-import storage from '../../helpers/storage';
-const Header = () => <p>Le header</p>;
-const Footer = () => <p>Le footer</p>;
-
-// test localstorage -- START
-let mystorage = storage.get(); // get the localstorage
-mystorage.questionId.thisIsAnObject = 5; // add add an object in questionID;
-storage.set(mystorage); // add a value
-mystorage.questionId.thisIsAnObject+=1; // increment value;
-storage.set(mystorage); // modified a value
-console.log(storage.get());
-// test localstorage -- END
-class App extends Component{
-  render(){
-    return(
+class App extends Component {
+  render() {
+    return (
       <div className="App">
-        <Header/>
         <Router>
-          <div>
-            <Route exact path="/" component={HomeContainer}/>
-            <Route exact path="/categories/:name" component={CategoryContainer}/>
-            <Route exact path="/gameover" component={GameOverContainer}/>
-          </div>
+          <Fragment>
+            <Route exact path="/" component={HomeContainer} />
+            <Route path="/categories/:id" component={CategoryContainer} />
+          </Fragment>
         </Router>
-        <Footer/>
       </div>
-    )
+    );
   }
 }
+
 export default App;
