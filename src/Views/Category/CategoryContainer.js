@@ -27,7 +27,7 @@ class CategoryContainer extends Component {
     let {currentQuestion} = this.state;
     currentQuestion === length ? currentQuestion = 0 : currentQuestion += 1;
     this.setState({currentQuestion}) 
-    storage.setQuestion(this.state.currentQuestion,this.props.match.params.id)
+    storage.setQuestion(currentQuestion,this.props.match.params.id)
   }
   badAnswer(){
     console.log("mauvais réponse")
